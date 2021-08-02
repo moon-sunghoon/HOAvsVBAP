@@ -1,0 +1,9 @@
+function Bmn = testENC(n,Ymn,s)
+nMic = 32;
+
+signal_array = zeros(
+for kk = 1:32
+    
+
+Ymn = pinv(Ymn);
+Bmn = s*Ymn
