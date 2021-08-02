@@ -1,0 +1,538 @@
+testname: Comparing Higher Order Ambisonic and Vector Base Amplitude Panning rendering over Headphones
+testId: sh_moon3
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+pages:
+    - type: generic
+      id: first_page
+      name: Welcome
+      content: This is a listening test for the evaluation of <b>Higer Order Ambisonic </b> and <b>Vector Base Amplitude Panning </b> in the binaural headphones system. </br></br> The test consists of two main parts for different attirubtes assessment, Localization Performance and Impression on Surround Quality. </br> The detailed instruction will be given before each assessment starts. </br></br> Please use the headphones throughout the listening test </br></br> All the test information is anonymous. </br> this listening test complies with GDPR. </br>If you want to withdraw your test result, please send a email to the address <b> "s.moon3@unimail.derby.ac.uk" </b>  </br></br> When you are ready, press the 'NEXT' button to start the test
+
+    - type: generic
+      id: localization_performance
+      name: Localization Performance Test
+      content: This is the first part of the listening test. During this test, the localization performance of each algorithm will be evaluated. </br>In total, there are 4 different sets for VBAP and 3rd, 4th, 5th Order Ambisnoic, which are randomly ordered.</br> Prior to each set, there will be a page for volume adjustment and reference audio sample. The location of reference is the center point of spherical coordinates. You can always go back to the page to listen to the reference.</br></br> During the test, the UI graphic will be given, which allows you to indicate the cartesian coordinates where you think the sound comes from. </br> There will be two diffrent graphic UI. </br></br> 1. view from the top  2. view from the right </br></br>At the center of the each image, there will be a dummy head, so please be aware of the direction and coordinate of the sound field. </br> You can use both graphic UI to correctly indicate the position of sound perception.
+
+# HOA4 #
+
+    - type: volume
+      id: volumt settings_1
+      name: Set 1. Headphones volume settings and the reference
+      content: Adjust your headphone volume before the test. You can always come back to this page to listen to the reference.
+      stimulus: configs/resources/audio/HOA4_pn_0_0.wav
+      defaultVolume: 0.05
+
+    - type: spatial
+      id : HOA4_Localization1
+      name: Localization set 1
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      framerate: 100
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/HOA4_pn_62_0.wav
+          C2: configs/resources/audio/HOA4_pn_90_0.wav
+          C3: configs/resources/audio/HOA4_pn_160_0.wav
+      responses:
+        - type: localization
+          name: HOA4_1
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: HOA4_2
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: HOA4_3
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+    - type: spatial
+      id : HOA4_Localization2
+      name: Localization set 1
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      framerate: 100
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/HOA4_pn_180_0.wav
+          C2: configs/resources/audio/HOA4_pn_0_90.wav
+          C3: configs/resources/audio/HOA4_pn_0_minus84.wav
+      responses:
+        - type: localization
+          name: HOA4_4
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: HOA4_5
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: HOA4_6
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+# HOA5 ################################################
+
+    - type: volume
+      id: volumt settings_2
+      name: Set 2
+      content: This is the reference for localization test set 2. You can always come back to this page to listen to the reference.
+      stimulus: configs/resources/audio/HOA5_pn_0_0.wav
+      defaultVolume: 0.05
+
+    - type: spatial
+      id : HOA5_Localization1
+      name: Localization set 2
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      framerate: 100
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/HOA5_pn_62_0.wav
+          C2: configs/resources/audio/HOA5_pn_90_0.wav
+          C3: configs/resources/audio/HOA5_pn_160_0.wav
+      responses:
+        - type: localization
+          name: HOA5_1
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: HOA5_2
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: HOA5_3
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+    - type: spatial
+      id : HOA5_Localization2
+      name: Localization set 2
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/HOA5_pn_180_0.wav
+          C2: configs/resources/audio/HOA5_pn_0_90.wav
+          C3: configs/resources/audio/HOA5_pn_0_minus84.wav
+      responses:
+        - type: localization
+          name: HOA5_4
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: HOA5_5
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: HOA5_6
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+####################################### VBAP ################################################
+
+    - type: volume
+      id: volumt settings_3
+      name: Set 3
+      content: This is the reference for localization test set 3. You can always come back to this page to listen to the reference.
+      stimulus: configs/resources/audio/vbap_pinknoise_0_0.wav
+      defaultVolume: 0.05
+
+    - type: spatial
+      id : VBAP_Localization 1
+      name: Localization set 3
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      framerate: 100
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/vbap_pinknoise_62_0.wav
+          C2: configs/resources/audio/vbap_pinknoise_90_0.wav
+          C3: configs/resources/audio/vbap_pinknoise_160_0.wav
+      responses:
+        - type: localization
+          name: VBAP_1
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: VBAP_2
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: VBAP_3
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+    - type: spatial
+      id : VBAP_Localization2
+      name: Localization set 3
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/vbap_pinknoise_180_0.wav
+          C2: configs/resources/audio/vbap_pinknoise_0_90.wav
+          C3: configs/resources/audio/vbap_pinknoise_0_minus84.wav
+      responses:
+        - type: localization
+          name: VBAP_4
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: VBAP_5
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: VBAP_6
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+####################################### HOA3 ################################################
+
+    - type: volume
+      id: volumt settings_4
+      name: Set 4
+      content: This is the reference for localization test set 4. You can always come back to this page to listen to the reference.
+      stimulus: configs/resources/audio/HOA3_pn_0_0.wav
+      defaultVolume: 0.05
+
+    - type: spatial
+      id : HOA3_Localization1
+      name: Localization set 4
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      framerate: 100
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/HOA3_pn_62_0.wav
+          C2: configs/resources/audio/HOA3_pn_90_0.wav
+          C3: configs/resources/audio/HOA3_pn_160_0.wav
+      responses:
+        - type: localization
+          name: HOA3_1
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: HOA3_2
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: HOA3_3
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+
+    - type: spatial
+      id : HOA3_Localization2
+      name: Localization set 4
+      content: Now you have to locate different stimuli. Play back a stimulus and place the spheres, with the colors of the buttons in the according box with the player, to the positions where you perceive sound sources.
+      framerate: 100
+      roomMeasurements: [600, 240, 500] # width, height, length
+      stimuli:
+          C1: configs/resources/audio/HOA3_pn_180_0.wav
+          C2: configs/resources/audio/HOA3_pn_0_90.wav
+          C3: configs/resources/audio/HOA3_pn_0_minus84.wav
+      responses:
+        - type: localization
+          name: HOA3_4
+          label: A
+          color: 0xff0000
+          stimulus: C1
+          position: [100,50,0]
+          size: 10
+        - type: localization
+          name: HOA3_5
+          label: B
+          color: 0xff5500
+          stimulus: C2
+          position: [-100,200,0]
+          size: 10
+        - type: localization
+          name: HOA3_6
+          label: C
+          color: 0x00ff00
+          stimulus: C3
+          position: [50,150,0]
+          size: 10
+
+      views:
+        - view: top
+        - view: right
+          position: [400,50,-400]
+      objects:
+        - type: listener
+          position: [0,100,0]
+          rotation: [0,0,180]
+        - type: custom
+          path: lib/webmushra/spatial/resources/listener_head.dae
+          position: [0,50,0]
+          rotation: [0,0,180]
+          scale: 5
+###################################### localzation end#######################################
+#################################Impression on Surround Quality##############################
+    - type: generic
+      id: Impression on Surround Quality
+      name: Impression on Surround Quality Test
+      content: This is the second part of the listening test. During this test, impression on surroudn quality of each algorithm will be evaluated. </br> In total, there are 4 different sets for different sound sources. </br>1.Nature </br>2.Guitar </br> 3.Football Stadium </br> 4.Band Ensemble </br></br> 7 stimuli will be given for each test set . </br>You will assess the impression on surround quality for those stimuli.  </br> Definition of <b> Impression on Surround Quality </b> for this listening test is </br></br> <b> The feeling of being immersive, whether the sound is encircling you naturally and whether it gives a sense of space both vertically and horizontally </b> </br></br>You must grade them on a scale of 0 to 100, whereby better impression on surround quality would be rated higher.</br> please grade the stimuli based on the definition of impression on surround quality, instead of grading them by comparing with the reference
+
+    - type: mushra
+      id: Nature_Peepers
+      name: Set 1
+      content: Impression on Surround Quality 1
+      showWaveform: true
+      enableLooping: false
+      reference: configs/resources/audio/beamformer_peepers.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/mono_peepers.wav
+          C2: configs/resources/audio/stereo_peepers.wav
+          C3: configs/resources/audio/HOA3_peepers.wav
+          C4: configs/resources/audio/HOA4_peepers.wav
+          C5: configs/resources/audio/vbap_Peepers.wav
+          C6: configs/resources/audio/vbap_Peepers.wav
+
+    - type: mushra
+      id: Guitar
+      name: Set 2
+      content: Impression on Surround Quality 2
+      showWaveform: true
+      enableLooping: false
+      reference: configs/resources/audio/beamformer_Martha.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/mono_Martha.wav
+          C2: configs/resources/audio/stereo_Martha.wav
+          C3: configs/resources/audio/HOA3_Martha.wav
+          C4: configs/resources/audio/HOA4_Martha.wav
+          C5: configs/resources/audio/vbap_Martha.wav
+          C6: configs/resources/audio/vbap_Martha.wav
+
+    - type: mushra
+      id: Football Stadium
+      name: Set 3
+      content: Impression on Surround Quality 3
+      showWaveform: true
+      enableLooping: false
+      reference: configs/resources/audio/beamformer_football.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/mono_FootballStadium.wav
+          C2: configs/resources/audio/stereo_FootballStadium.wav
+          C3: configs/resources/audio/HOA3_FootballStadium.wav
+          C4: configs/resources/audio/HOA4_FootballStadium.wav
+          C5: configs/resources/audio/vbap_Football.wav
+          C6: configs/resources/audio/vbap_Football.wav
+
+    - type: mushra
+      id: Ensemble
+      name: Set 4
+      content: Impression on Surround Quality 4
+      showWaveform: true
+      enableLooping: false
+      reference: configs/resources/audio/beamformer_showcase.wav
+      createAnchor35: false
+      createAnchor70: false
+      stimuli:
+          C1: configs/resources/audio/mono_Showcase.wav
+          C2: configs/resources/audio/stereo_Showcase.wav
+          C3: configs/resources/audio/HOA3_Showcase.wav
+          C4: configs/resources/audio/HOA4_Showcase.wav
+          C5: configs/resources/audio/vbap_showcase.wav
+          C6: configs/resources/audio/vbap_showcase.wav
+
+    - type: finish
+      name: Thank you
+      content: Thank you for attending, please fill in the following questionnaires
+      popupContent: Your results were sent. Goodbye and have a nice day
+      showResults: false
+      writeResults: true
+      questionnaire:
+          - type: number
+            label: Age
+            name: age
+            min: 0
+            max: 100
+            default: 30
+
+          - type: long_text
+            label: headphone used for the test
+            name: headphone name
+            optional: true
+
+          - type: likert
+            name: listening_test_experience
+            label: Have you taken part in a listening test about spatial attributes yet?
+            response:
+             - value: no
+               label: No
+             - value: yes
+               label: Yes
+
+          - type: likert
+            name: professional
+            label: Do you have a background in professional audio or do you have any education in audio engineering/music techonolgy?  (e.g. sound/recording engineer, researcher)?
+            response:
+             - value: no
+               label: No
+             - value: yes
+               label: Yes
