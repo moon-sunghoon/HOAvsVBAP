@@ -7,7 +7,7 @@
 % some external codes from  Archontis Politis (2015) https://github.com/polarch/Higher-Order-Ambisonics
 
 
-clear all; clc; 
+clear ; clc; 
 addpath(genpath('E:\OneDrive - University of Derby\IES\coding'));
 
 
